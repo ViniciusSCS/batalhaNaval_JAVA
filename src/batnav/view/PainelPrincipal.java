@@ -50,6 +50,7 @@ public class PainelPrincipal extends JPanel {
 				
 				controlador.usuarioClicou(indexLin, indexCol);
 				repaint();
+				//Verifica onde o Usuário clicou e altera a cor do quadrado clicado (menor dimensao)
 			}
 		});
 	}

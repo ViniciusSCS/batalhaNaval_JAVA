@@ -35,7 +35,7 @@ public class ControladorBatNav {
 	}
 
 	public int getTamanhoJogo() {
-		// declarar um atributo nessa classe com o tamanho e aqui retorno o atributo, criar um metado para fazer uma ligação com o 
+		// declarar um atributo nessa classe com o tamanho e aqui retorno o atributo, criar um metado para fazer uma ligaÃ§Ã£o com o 
 		// modelo esse metado vai mandar para o objeto que vai ser estanciado no modelo para fazer com com atributo do tamanho 
 		return a;
 		
@@ -43,7 +43,7 @@ public class ControladorBatNav {
 
 	public boolean temSubmarino(int linha, int coluna) {
 		
-		
+		//Consulta a linha e coluna onde o jogador clicou, se tiver navio/submarino, ele mostra a imagem
 		
 		return (jajogou.consultar(linha,coluna))&&(submarino.consultar(linha,coluna));
 	}
