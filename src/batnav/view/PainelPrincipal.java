@@ -19,16 +19,18 @@ public class PainelPrincipal extends JPanel {
 
 	private ControladorBatNav controlador;
 	
-	private static final Color GRADE = Color.black;
-	private static final Color AGUA = Color.blue;
+	private static final Color GRADE = Color.decode("#000000");
+	private static final Color AGUA = Color.decode("#17cfc5");
 	
 	private static BufferedImage IMG_SUB;
 	private static BufferedImage IMG_NAV;
+	private static BufferedImage IMG_NAV1;
 	
 	static {
 		try {
 			IMG_SUB = ImageIO.read(new File("resources/sub.png"));
 			IMG_NAV = ImageIO.read(new File("resources/nav.png"));
+			IMG_NAV1 = ImageIO.read(new File("resources/nav1.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
