@@ -7,14 +7,9 @@ public class Navio {
 	static int i;
 	static int j;
 	
-	
-	
-	
+		
 	public Navio(int t){
 		navio = new int[t][t];
-		
-		
-		
 		
 	}
 	public void alterar(int linha, int coluna){
@@ -49,15 +44,6 @@ public class Navio {
 			
 		}
 		
-		
-	
-		
-		
-		
-		
-		
-		
 	}	
 		
 
-//}

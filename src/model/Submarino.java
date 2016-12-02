@@ -7,12 +7,7 @@ public class Submarino {
 	static int i;
 	static int j;
 	public Submarino(int t){
-		submarino = new int[t][t];
-		
-		
-		
-		
-		
+		submarino = new int[t][t];	
 	}
 	public void alterar(int linha, int coluna){
 		
@@ -45,15 +40,7 @@ public class Submarino {
 			}
 			
 		}
-		
-		
-	
-		
-		
-		
-		
-		
-		
+			
 	}	
 		
 
