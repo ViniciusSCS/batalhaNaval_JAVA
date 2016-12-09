@@ -1,5 +1,7 @@
 package batnav.controler;
+
 import java.util.Random;
+
 
 import model.Jajogou;
 import model.Matriz;
@@ -132,5 +134,4 @@ public class ControladorBatNav {
 		Inicializa();
 	
 	}
-
 }
