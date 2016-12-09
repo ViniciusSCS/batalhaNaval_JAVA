@@ -16,10 +16,7 @@ public class ControladorBatNav {
 
 
     public ControladorBatNav() {
-        random = new Random();
-        submarino = new Submarino(area);
-        tabuleiro = new Tabuleiro(area);
-        navio = new Navio(area);
+        restart();
     }
 
     public void usuarioClicou(int indexLinha, int indexColuna) {
@@ -27,6 +24,10 @@ public class ControladorBatNav {
     }
 
     public void restart() {
+        random = new Random();
+        submarino = new Submarino(area);
+        tabuleiro = new Tabuleiro(area);
+        navio = new Navio(area);
         batalha();
     }
 
