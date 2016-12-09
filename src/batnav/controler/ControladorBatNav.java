@@ -2,6 +2,7 @@ package batnav.controler;
 
 import java.util.Random;
 
+import batnav.model.Navio1;
 import batnav.model.Tabuleiro;
 import batnav.model.Navio;
 import batnav.model.Submarino;
@@ -12,6 +13,7 @@ public class ControladorBatNav {
     public Tabuleiro tabuleiro;
     public Submarino submarino;
     public Navio navio;
+    public Navio1 navio1;
     private Random random;
 
 
@@ -28,6 +30,7 @@ public class ControladorBatNav {
         submarino = new Submarino(area);
         tabuleiro = new Tabuleiro(area);
         navio = new Navio(area);
+        navio1 = new Navio1(area);
         batalha();
     }
 
@@ -47,6 +50,11 @@ public class ControladorBatNav {
         return (tabuleiro.consultar(linha, coluna)) && (navio.consultar(linha, coluna));
     }
 
+    public boolean temNavio1(int linha, int coluna) {
+        //fazer a matriz ;
+        return (tabuleiro.consultar(linha, coluna)) && (navio1.consultar(linha, coluna));
+    }
+
     public boolean jaJogou(int linha, int coluna) {
         return tabuleiro.consultar(linha, coluna);
     }
@@ -58,20 +66,28 @@ public class ControladorBatNav {
             x = random.nextInt(area);
             y = random.nextInt(area);
 
-            if (!submarino.consultar(x, y)) {
+            if (!submarino.consultar(x, y) && !navio1.consultar(x, y)) {
                 navio.alterar(x, y);
             }
 
             x = random.nextInt(area);
             y = random.nextInt(area);
 
-            if (!navio.consultar(x, y)) {
+            if (!navio.consultar(x, y) && !navio1.consultar(x, y)) {
                 submarino.alterar(x, y);
+            }
+
+            x = random.nextInt(area);
+            y = random.nextInt(area);
+
+            if (!navio.consultar(x, y) && !submarino.consultar(x, y)) {
+                navio1.alterar(x, y);
             }
         }
 
         tabuleiro.reiniciar();
         navio.reiniciar();
+        navio1.reiniciar();
         submarino.reiniciar();
     }
 }
