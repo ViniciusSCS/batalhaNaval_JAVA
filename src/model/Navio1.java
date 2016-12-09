@@ -1,47 +1,32 @@
 package model;
 
-public class Navio1 {
-	
-	static int navio1[][];
-	static int t;// tamanho
-	static int i;
-	static int j;
-	
+public class Navio1 implements Objeto {
 		
-	public Navio1(int t){
-		navio1 = new int[t][t];
+	public Matriz matriz=Matriz.getInstance();
 		
-	}
+		// Se tiver Navio1 coloca o valor 4 na matriz
 	public void alterar(int linha, int coluna){
 		
-	   navio1[linha][coluna]=1;
-		
-		
+		matriz.setMatriz(linha, coluna, 4);
+		matriz.setMatriz(linha, coluna+1, 4);
 	}
+	
 	public boolean consultar(int linha, int coluna){
 		
-		if (navio1[linha][coluna]==1){
-			return true;
-			
-			
-		}
-		else {
-			
-			
-		return false;	
-			
-		}
+		if ((matriz.getMatriz(linha,coluna) == 0)&&(matriz.getMatriz(linha,coluna+1) == 0)){
+			  return false;
+			 
+		  } return true;
+		  		  
 	}
+	
 		public void reiniciar(){
-			for(i=0; i<t;i++){
-				
-				for(j=0; j<t;j++){
-					navio1[i][j]=0;
-					
-				}
-				
+						
+			for(int i=0; i<matriz.Lenght();i++){
+				for(int j=0; j<matriz.Lenght();j++){
+					matriz.setMatriz(i, j, 0);
+				}	
 			}
 			
 		}
-
-}
+	}

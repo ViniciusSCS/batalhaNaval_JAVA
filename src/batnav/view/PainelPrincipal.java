@@ -96,7 +96,9 @@ public class PainelPrincipal extends JPanel {
 				}
 			}
 		}
+		
 	}
+	
 	
 	private int calculaMenorDimensao() {
 		int dimensao = getSize().height;

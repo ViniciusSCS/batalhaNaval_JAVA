@@ -12,7 +12,7 @@ public class JogoBatalhaNaval {
 		frame.setContentPane(painel);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 500);
+		frame.setSize(700, 700);
 //		frame.setResizable(false);
 		frame.setVisible(true);
 	}

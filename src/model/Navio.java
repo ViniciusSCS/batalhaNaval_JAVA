@@ -1,49 +1,37 @@
 package model;
 
-public class Navio {
+public class Navio implements Objeto {
 
-	static int navio[][];
-	static int t;// tamanho
-	static int i;
-	static int j;
+	public Matriz matriz = Matriz.getInstance();
+	public MatrizJogo matrizJogo = MatrizJogo.getInstance();
 	
-		
-	public Navio(int t){
-		navio = new int[t][t];
-		
-	}
-	public void alterar(int linha, int coluna){
-		
-	   navio[linha][coluna]=1;
-		
-		
-	}
-	public boolean consultar(int linha, int coluna){
-		
-		if (navio[linha][coluna]==1){
-			return true;
-			
-			
-		}
-		else {
-			
-			
-		return false;	
-			
-		}
-	}
-		public void reiniciar(){
-			for(i=0; i<t;i++){
-				
-				for(j=0; j<t;j++){
-					navio[i][j]=0;
-					
-				}
-				
-			}
-			
-		}
-		
-	}	
-		
+	// Se tiver Navio coloca o valor 3 na matriz
 
+	@Override
+	public void alterar(int linha, int coluna) {
+		// TODO Auto-generated method stub
+		matrizJogo.setMatriz(linha, coluna, 3);
+		matrizJogo.setMatriz(linha, coluna + 1, 3);
+	}
+
+	@Override
+	public boolean consultar(int linha, int coluna) {
+		// TODO Auto-generated method stub
+		if (matrizJogo.getMatrizJogo(linha, coluna) == 3)  {
+			return true;
+
+		}
+		return false;
+	}
+
+	@Override
+	public void reiniciar() {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < matrizJogo.Lenght(); i++) {
+			for (int j = 0; j < matrizJogo.Lenght(); j++) {
+				matrizJogo.setMatriz(i, j, 0);
+			}
+		}
+	}
+
+}

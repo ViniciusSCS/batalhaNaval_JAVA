@@ -2,32 +2,67 @@ package batnav.controler;
 import java.util.Random;
 
 import model.Jajogou;
+import model.Matriz;
+import model.MatrizJogo;
 import model.Navio;
+import model.Navio1;
 import model.Submarino;
 
 public class ControladorBatNav {
-    public int a=15;
+    public int a=14;
   
     public Jajogou jajogou;
     public Submarino submarino ; 
     public Navio navio;
+    public Navio1 navio1;
+    public Matriz matriz;
     private Random radom;
-      
-      
+    public MatrizJogo matrizJogo;
+    
+    
       public ControladorBatNav(){
     	  
-    	  radom = new Random();
-    	  submarino = new Submarino(a);
-    	  jajogou = new Jajogou(a);
-    	  navio= new Navio(a);
-    	  batalha();
+    	  matriz=Matriz.getInstance();
+    	  matrizJogo = MatrizJogo.getInstance();
     	  
+    	  jajogou = new Jajogou();
+    	  submarino = new Submarino();
+    	  navio= new Navio();
     	  
+    	  Inicializa();
       }
+      
+    public void Inicializa(){
+    	
+    	navio.alterar(1, 1);
+    	navio.alterar(10, 5);
+    	navio.alterar(6, 7);
+    	navio.alterar(2, 4);
+    	navio.alterar(9, 3);
+    	navio.alterar(5, 6);
+    	
+    	submarino.alterar(1, 6);
+    	submarino.alterar(3, 7);
+    	submarino.alterar(5, 11);
+    	submarino.alterar(6, 14);
+    	submarino.alterar(8, 9);
+    	submarino.alterar(13, 4);
+    	
+    }
+      
+    
 	public void usuarioClicou(int indexLinha, int indexColuna) {
-		jajogou.alterar(indexLinha, indexColuna);
 		
+		if (jajogou.consultar(indexLinha, indexColuna)){
+			
+		}else {
+			jajogou.alterar(indexLinha, indexColuna);
+			
+			
+		}
+
 	}
+	
 
 	public void restart() {
 		batalha();
@@ -45,44 +80,56 @@ public class ControladorBatNav {
 		
 		//Consulta a linha e coluna onde o jogador clicou, se tiver navio/submarino, ele mostra a imagem
 		
+		//jajogou.consultar(linha, coluna);
+		
 		return (jajogou.consultar(linha,coluna))&&(submarino.consultar(linha,coluna));
+		
 	}
-
+	
+	public boolean temNavio1( int linha, int coluna){
+		return (jajogou.consultar(linha, coluna))&&(navio1.consultar(linha,coluna));
+	}
+	
 	public boolean temNavio(int linha, int coluna) {
 		
-		//fazer a matriz ;
-		
 		return (jajogou.consultar(linha,coluna))&&(navio.consultar(linha,coluna));
+		
 	}
 
 	public boolean jaJogou(int linha, int coluna) {
-		// 
+		
 		return jajogou.consultar(linha,coluna);
+		
 	}
 	public void batalha(){
-		int t;
-		t=(int)(a*a)/5;
-		for(int i=0;i<t;i++){
-			int x,y;
-			x=radom.nextInt(a);
-			y=radom.nextInt(a);
-			if(submarino.consultar(x,y)==false){
-				navio.alterar(x,y);
-				
-			}
-			x=radom.nextInt(a);
-			y=radom.nextInt(a);
-			if(navio.consultar(x,y)==false){
-				submarino.alterar(x,y);
-				
-			}
+//		int t;
+//		t=(int)(a*a)/5;
 		
-		}
+//		for(int i=0;i<t;i++){
+//			int x,y;
+//			x=radom.nextInt(a);
+//			y=radom.nextInt(a);
+//			
+//			if(submarino.consultar(x,y)==false){
+//				navio.alterar(x,y);
+//			}
+//			
+//			x=radom.nextInt(a);
+//			y=radom.nextInt(a);
+//			
+//			if(navio.consultar(x,y)==false){
+//				submarino.alterar(x,y);
+//			}
+//		
+//		}
+		
+		
+		
 		jajogou.reiniciar();
 		navio.reiniciar();
 		submarino.reiniciar();
 		
-		
+		Inicializa();
 	
 	}
 

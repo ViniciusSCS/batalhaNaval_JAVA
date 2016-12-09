@@ -1,47 +1,34 @@
 package model;
 // 
 
-public class Submarino {
-	static int submarino[][];
-	static int t;
-	static int i;
-	static int j;
-	public Submarino(int t){
-		submarino = new int[t][t];	
-	}
+public class Submarino implements Objeto {
+	public MatrizJogo matrizJogo=MatrizJogo.getInstance();
+	
+		// Se tiver submarino coloca o valor 2 na matriz
 	public void alterar(int linha, int coluna){
 		
-	   submarino[linha][coluna]=1; 
-		
-		
+		matrizJogo.setMatriz(linha, coluna, 2);
 	}
-	public  boolean consultar(int linha, int coluna){
+	
+	public boolean consultar(int linha, int coluna){
 		
-		if (submarino[linha][coluna]==1){
-			return true;
-			
-			
-		}
-		else {
-			
-			
-		return false;	
-			
-		}
+		if (matrizJogo.getMatrizJogo(linha,coluna) == 2){
+			  return true;
+			 
+		  } return false;
+		  		  
 	}
+	
 		public void reiniciar(){
-			for(i=0; i<t;i++){
-				
-				for(j=0; j<t;j++){
-					submarino[i][j]=0;
-					
-				}
-				
+						
+			for(int i=0; i<matrizJogo.Lenght();i++){
+				for(int j=0; j<matrizJogo.Lenght();j++){
+					matrizJogo.setMatriz(i, j, 0);
+				}	
 			}
 			
 		}
-			
-	}	
+	}
 		
 
 //}
