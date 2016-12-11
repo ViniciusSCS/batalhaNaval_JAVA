@@ -23,14 +23,18 @@ public class PainelPrincipal extends JPanel {
 	private static final Color AGUA = Color.decode("#17cfc5");
 	
 	private static BufferedImage IMG_SUB;
-	private static BufferedImage IMG_NAV;
+	private static BufferedImage IMG_NAV_PT1;
+	private static BufferedImage IMG_NAV_PT2;
 	private static BufferedImage IMG_NAV1;
+	private static BufferedImage BOMB;
 	
 	static {
 		try {
 			IMG_SUB = ImageIO.read(new File("resources/sub.png"));
-			IMG_NAV = ImageIO.read(new File("resources/nav.png"));
+			IMG_NAV_PT1 = ImageIO.read(new File("resources/nav-pt1.png"));
+			IMG_NAV_PT2 = ImageIO.read(new File("resources/nav-pt2.png"));
 			IMG_NAV1 = ImageIO.read(new File("resources/nav1.png"));
+			BOMB = ImageIO.read(new File("resources/bomb.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -80,12 +84,19 @@ public class PainelPrincipal extends JPanel {
 					g.drawImage(IMG_SUB, j * size, i * size, size, size, null);
 				}
 				
-				if(controlador.temNavio(i, j)){
-					g.drawImage(IMG_NAV, j * size, i * size, size * 2, size, null);
+				if(controlador.temNavioPt1(i, j)){
+					g.drawImage(IMG_NAV_PT1, j * size, i * size, size * 1, size, null);
+				}
+				
+				if(controlador.temNavioPt2(i, j)){
+					g.drawImage(IMG_NAV_PT2, j * size, i * size, size * 1, size, null);
 				}
 				
 				if(controlador.temNavio1(i, j)){
 					g.drawImage(IMG_NAV1, j * size, i * size, size * 3, size, null);
+				}
+				if(controlador.temBomba(i, j)){
+					g.drawImage(BOMB, j * size, i * size, size*1, size, null);
 				}
 			}
 		}
@@ -93,13 +104,17 @@ public class PainelPrincipal extends JPanel {
 		for(int i = 0; i < controlador.getTamanhoJogo(); i++) {
 			for(int j = 0; j < controlador.getTamanhoJogo(); j++) {
 				if(controlador.jaJogou(i, j)) {
+					
+					//g.drawImage(BOMB, j * size, i * size, size, size, null);
 					g2.setColor(Color.black);
 					g2.setComposite(AlphaComposite.SrcOver.derive(0.3f));
 					g2.fillRect(j * size, i * size, size, size);
 					g2.setComposite(AlphaComposite.SrcOver);
+					
 				}
 			}
 		}
+		
 		
 	}
 	

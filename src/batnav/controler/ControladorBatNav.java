@@ -8,6 +8,7 @@ import model.Matriz;
 import model.MatrizJogo;
 import model.Navio;
 import model.Navio1;
+import model.Score;
 import model.Submarino;
 
 public class ControladorBatNav {
@@ -20,7 +21,7 @@ public class ControladorBatNav {
     public Matriz matriz;
     private Random radom;
     public MatrizJogo matrizJogo;
-    
+    public Score score;
     
       public ControladorBatNav(){
     	  
@@ -30,13 +31,15 @@ public class ControladorBatNav {
     	  jajogou = new Jajogou();
     	  submarino = new Submarino();
     	  navio= new Navio();
+    	  navio1 = new Navio1();
+    	  score = new Score();
     	  
     	  Inicializa();
       }
       
     public void Inicializa(){
     	
-    	navio.alterar(1, 1);
+    	navio.alterar(1, 4);
     	navio.alterar(10, 5);
     	navio.alterar(6, 7);
     	navio.alterar(2, 4);
@@ -49,6 +52,13 @@ public class ControladorBatNav {
     	submarino.alterar(6, 14);
     	submarino.alterar(8, 9);
     	submarino.alterar(13, 4);
+    	
+    	navio1.alterar(2, 0);
+    	navio1.alterar(4, 8);
+    	navio1.alterar(7, 6);
+    	navio1.alterar(14, 3);
+    	navio1.alterar(9, 8);
+    	navio1.alterar(7, 7);
     	
     }
       
@@ -82,19 +92,49 @@ public class ControladorBatNav {
 		
 		//Consulta a linha e coluna onde o jogador clicou, se tiver navio/submarino, ele mostra a imagem
 		
-		//jajogou.consultar(linha, coluna);
+		boolean res;
+		res = (jajogou.consultar(linha,coluna))&&(submarino.consultar(linha,coluna));
+		
+		if (res=false){
+			score.setPontos(35);
+		}else score.setPontos(-10);
+		
 		
 		return (jajogou.consultar(linha,coluna))&&(submarino.consultar(linha,coluna));
 		
 	}
 	
 	public boolean temNavio1( int linha, int coluna){
+		
 		return (jajogou.consultar(linha, coluna))&&(navio1.consultar(linha,coluna));
 	}
 	
-	public boolean temNavio(int linha, int coluna) {
+	
+	public boolean temNavioPt1(int linha, int coluna) {
+		
+		boolean res;
+		res = (jajogou.consultar(linha,coluna))&&(navio.consultar(linha,coluna));
+		
+		if (res=false){
+			score.setPontos(-10);
+		}else score.setPontos(25);
+		
 		
 		return (jajogou.consultar(linha,coluna))&&(navio.consultar(linha,coluna));
+		
+	}
+	
+	public boolean temNavioPt2(int linha, int coluna) {
+		
+		boolean res;
+		res = (jajogou.consultar(linha,coluna))&&(navio.consultarPt2(linha,coluna));
+		
+		if (res=false){
+			score.setPontos(25);
+		}else score.setPontos(-10);
+		
+		
+		return (jajogou.consultar(linha,coluna))&&(navio.consultarPt2(linha,coluna));
 		
 	}
 
@@ -103,28 +143,20 @@ public class ControladorBatNav {
 		return jajogou.consultar(linha,coluna);
 		
 	}
+	
+	public boolean temBomba(int linha, int coluna) {
+		
+		return jajogou.consultarBomba(linha, coluna);
+		
+	}
+	
+	
+	public float getScore(){
+		
+		return (score.getPontos());
+	}
+	
 	public void batalha(){
-//		int t;
-//		t=(int)(a*a)/5;
-		
-//		for(int i=0;i<t;i++){
-//			int x,y;
-//			x=radom.nextInt(a);
-//			y=radom.nextInt(a);
-//			
-//			if(submarino.consultar(x,y)==false){
-//				navio.alterar(x,y);
-//			}
-//			
-//			x=radom.nextInt(a);
-//			y=radom.nextInt(a);
-//			
-//			if(navio.consultar(x,y)==false){
-//				submarino.alterar(x,y);
-//			}
-//		
-//		}
-		
 		
 		
 		jajogou.reiniciar();

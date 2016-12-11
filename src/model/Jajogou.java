@@ -2,7 +2,7 @@ package model;
 
 public class Jajogou implements Objeto {
 	public Matriz matriz = Matriz.getInstance();
-
+	public MatrizJogo matrizJogo = MatrizJogo.getInstance();
 	// Se for ja estiver jogado coloca o Valor 1 na matriz
 
 	@Override
@@ -20,7 +20,15 @@ public class Jajogou implements Objeto {
 		}
 		return true;
 	}
+	
+	public boolean consultarBomba(int linha, int coluna){
+		
+		if (matrizJogo.getMatrizJogo(linha, coluna) == 0)  {
+			return true;
 
+		}return false;
+	}
+	
 	@Override
 	public void reiniciar() {
 		// TODO Auto-generated method stub
