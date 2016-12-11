@@ -107,9 +107,9 @@ public class PainelPrincipal extends JPanel {
 				if(controlador.temNavio1PT3(i, j)){
 					g.drawImage(IMG_NAV1_PT3, j * size, i * size, size * 1, size, null);
 				}
-				if(controlador.temBomba(i, j)){
-					g.drawImage(BOMB, j * size, i * size, size*1, size, null);
-				}
+//				if(controlador.temBomba(i, j)){
+//					g.drawImage(BOMB, j * size, i * size, size*1, size, null);
+//				}
 			}
 		}
 		
