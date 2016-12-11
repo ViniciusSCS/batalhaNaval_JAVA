@@ -25,7 +25,9 @@ public class PainelPrincipal extends JPanel {
 	private static BufferedImage IMG_SUB;
 	private static BufferedImage IMG_NAV_PT1;
 	private static BufferedImage IMG_NAV_PT2;
-	private static BufferedImage IMG_NAV1;
+	private static BufferedImage IMG_NAV1_PT1;
+	private static BufferedImage IMG_NAV1_PT2;
+	private static BufferedImage IMG_NAV1_PT3;
 	private static BufferedImage BOMB;
 	
 	static {
@@ -33,7 +35,9 @@ public class PainelPrincipal extends JPanel {
 			IMG_SUB = ImageIO.read(new File("resources/sub.png"));
 			IMG_NAV_PT1 = ImageIO.read(new File("resources/nav-pt1.png"));
 			IMG_NAV_PT2 = ImageIO.read(new File("resources/nav-pt2.png"));
-			IMG_NAV1 = ImageIO.read(new File("resources/nav1.png"));
+			IMG_NAV1_PT1 = ImageIO.read(new File("resources/nav1-pt1.png"));
+			IMG_NAV1_PT2 = ImageIO.read(new File("resources/nav1-pt2.png"));
+			IMG_NAV1_PT3 = ImageIO.read(new File("resources/nav1-pt3.png"));
 			BOMB = ImageIO.read(new File("resources/bomb.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -83,7 +87,8 @@ public class PainelPrincipal extends JPanel {
 				if(controlador.temSubmarino(i, j)) {
 					g.drawImage(IMG_SUB, j * size, i * size, size, size, null);
 				}
-				
+			
+			// Navio de 2 blocos
 				if(controlador.temNavioPt1(i, j)){
 					g.drawImage(IMG_NAV_PT1, j * size, i * size, size * 1, size, null);
 				}
@@ -92,8 +97,15 @@ public class PainelPrincipal extends JPanel {
 					g.drawImage(IMG_NAV_PT2, j * size, i * size, size * 1, size, null);
 				}
 				
-				if(controlador.temNavio1(i, j)){
-					g.drawImage(IMG_NAV1, j * size, i * size, size * 3, size, null);
+			// Navio de 3 blocos
+				if(controlador.temNavioPT1(i, j)){
+					g.drawImage(IMG_NAV1_PT1, j * size, i * size, size * 1, size, null);
+				}
+				if(controlador.temNavio1PT2(i, j)){
+					g.drawImage(IMG_NAV1_PT2, j * size, i * size, size * 1, size, null);
+				}
+				if(controlador.temNavio1PT3(i, j)){
+					g.drawImage(IMG_NAV1_PT3, j * size, i * size, size * 1, size, null);
 				}
 				if(controlador.temBomba(i, j)){
 					g.drawImage(BOMB, j * size, i * size, size*1, size, null);

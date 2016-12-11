@@ -104,11 +104,39 @@ public class ControladorBatNav {
 		
 	}
 	
-	public boolean temNavio1( int linha, int coluna){
+	public boolean temNavioPT1( int linha, int coluna){
 		
 		return (jajogou.consultar(linha, coluna))&&(navio1.consultar(linha,coluna));
 	}
 	
+	
+	public boolean temNavio1PT2(int linha, int coluna) {
+		
+		boolean res;
+		res = (jajogou.consultar(linha,coluna))&&(navio1.consultarPT2(linha,coluna));
+		
+		if (res=false){
+			score.setPontos(-10);
+		}else score.setPontos(25);
+		
+		
+		return (jajogou.consultar(linha,coluna))&&(navio1.consultarPT2(linha,coluna));
+		
+	}
+	
+	public boolean temNavio1PT3(int linha, int coluna) {
+		
+		boolean res;
+		res = (jajogou.consultar(linha,coluna))&&(navio1.consultarPT3(linha,coluna));
+		
+		if (res=false){
+			score.setPontos(-10);
+		}else score.setPontos(25);
+		
+		
+		return (jajogou.consultar(linha,coluna))&&(navio1.consultarPT3(linha,coluna));
+		
+	}
 	
 	public boolean temNavioPt1(int linha, int coluna) {
 		
