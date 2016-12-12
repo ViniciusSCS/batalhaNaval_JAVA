@@ -1,6 +1,7 @@
 package batnav.view;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JogoBatalhaNaval {
@@ -11,6 +12,7 @@ public class JogoBatalhaNaval {
 		
 		JPanel painel = new PainelDoJogo();
 		frame.setContentPane(painel);
+		
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(700, 700);

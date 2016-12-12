@@ -2,13 +2,13 @@ package model;
 
 public class Score {
 
-		float pontos;
+		int pontos;
 
-		public float getPontos() {
+		public int getPontos() {
 			return pontos;
 		}
 
-		public void setPontos(float pontos) {
+		public void setPontos(int pontos) {
 			this.pontos = (this.pontos + pontos);
 		}
 }
