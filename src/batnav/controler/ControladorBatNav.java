@@ -68,6 +68,8 @@ public class ControladorBatNav {
 			navio1.alterar(linha, coluna);
 		}
 		
+		score.setPontos(0);
+		
 //		navio.alterar(1, 4);
 //		navio.alterar(10, 5);
 //		navio.alterar(6, 7);
@@ -207,7 +209,7 @@ public class ControladorBatNav {
 
 	public boolean temBomba(int linha, int coluna) {
 
-		return jajogou.consultarBomba(linha, coluna);
+		return (jajogou.consultar(linha, coluna)) && (jajogou.consultarBomba(linha, coluna));
 
 	}
 

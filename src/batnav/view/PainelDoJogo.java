@@ -22,13 +22,14 @@ public class PainelDoJogo extends JPanel {
         add(painelPrincipal, BorderLayout.CENTER);
         
 //        Score ponto = new Score();
-        ControladorBatNav ponto = new ControladorBatNav();
+        ControladorBatNav Controlador = new ControladorBatNav();
         
         
         JButton restart = new JButton("Restart");
         restart.addActionListener(e -> painelPrincipal.restart());
-        JLabel score = new JLabel("Score: " + ponto.getScore());
+        JLabel score = new JLabel("Score: " + Controlador.getScore());
         
+        System.out.println(Controlador.getScore());
                
         JPanel painelBotao = new JPanel();
         painelBotao.add(restart);
