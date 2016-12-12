@@ -18,7 +18,7 @@ public class ControladorBatNav {
 	public Navio navio;
 	public Navio1 navio1;
 	public Matriz matriz;
-	private Random radom;
+	private Random random;
 	public MatrizJogo matrizJogo;
 	public Score score;
 
@@ -37,27 +37,57 @@ public class ControladorBatNav {
 	}
 
 	public void Inicializa() {
-
-		navio.alterar(1, 4);
-		navio.alterar(10, 5);
-		navio.alterar(6, 7);
-		navio.alterar(2, 4);
-		navio.alterar(9, 3);
-		navio.alterar(5, 6);
-
-		submarino.alterar(1, 6);
-		submarino.alterar(3, 7);
-		submarino.alterar(5, 11);
-		submarino.alterar(6, 14);
-		submarino.alterar(8, 9);
-		submarino.alterar(13, 4);
-
-		navio1.alterar(2, 0);
-		navio1.alterar(4, 8);
-		navio1.alterar(7, 6);
-		navio1.alterar(14, 3);
-		navio1.alterar(9, 8);
-		navio1.alterar(7, 7);
+		
+		int linha, coluna, res;
+		
+		random = new Random();
+		
+		
+		for (int i=0; i < 7; i++){
+			
+			linha = random.nextInt(12);
+			coluna = random.nextInt(12);
+			
+			navio.alterar(linha, coluna);
+		}
+		
+		for (int i=0; i < 8; i++){
+			
+			linha = random.nextInt(12);
+			coluna = random.nextInt(12);
+			
+			submarino.alterar(linha, coluna);
+		}
+		
+		
+		for (int i=0; i < 5; i++){
+			
+			linha = random.nextInt(12);
+			coluna = random.nextInt(12);
+			
+			navio1.alterar(linha, coluna);
+		}
+		
+//		navio.alterar(1, 4);
+//		navio.alterar(10, 5);
+//		navio.alterar(6, 7);
+//		navio.alterar(2, 4);
+//		navio.alterar(9, 3);
+//		navio.alterar(5, 6);
+//
+//		submarino.alterar(1, 6);
+//		submarino.alterar(3, 7);
+//		submarino.alterar(5, 11);
+//		submarino.alterar(6, 14);
+//		submarino.alterar(8, 9);
+//		submarino.alterar(13, 4);
+//
+//		navio1.alterar(2, 0);
+//		navio1.alterar(4, 8);
+//		navio1.alterar(7, 6);
+//		navio1.alterar(14, 3);
+//		navio1.alterar(9, 8);
+//		navio1.alterar(7, 7);
 
 	}
 
@@ -104,7 +134,7 @@ public class ControladorBatNav {
 
 	}
 
-	public boolean temNavioPT1(int linha, int coluna) {
+	public boolean temNavio1PT1(int linha, int coluna) {
 
 		return (jajogou.consultar(linha, coluna)) && (navio1.consultar(linha, coluna));
 	}

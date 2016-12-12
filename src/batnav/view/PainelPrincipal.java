@@ -57,6 +57,9 @@ public class PainelPrincipal extends JPanel {
 				int indexLin = y / calculaMenorDimensao();
 				
 				controlador.usuarioClicou(indexLin, indexCol);
+				
+				System.out.println(controlador.getScore());
+				
 				repaint();
 				//Verifica onde o Usuário clicou e altera a cor do quadrado clicado (menor dimensao)
 			}
@@ -98,7 +101,7 @@ public class PainelPrincipal extends JPanel {
 				}
 				
 			// Navio de 3 blocos
-				if(controlador.temNavioPT1(i, j)){
+				if(controlador.temNavio1PT1(i, j)){
 					g.drawImage(IMG_NAV1_PT1, j * size, i * size, size * 1, size, null);
 				}
 				if(controlador.temNavio1PT2(i, j)){

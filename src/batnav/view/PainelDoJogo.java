@@ -33,6 +33,7 @@ public class PainelDoJogo extends JPanel {
         JPanel painelBotao = new JPanel();
         painelBotao.add(restart);
         add(painelBotao, BorderLayout.SOUTH);
+        
         JPanel painelScore = new JPanel();
         painelScore.add(score);
         add(painelScore, BorderLayout.NORTH);
