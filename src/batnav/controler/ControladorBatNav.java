@@ -42,13 +42,39 @@ public class ControladorBatNav {
 		
 		random = new Random();
 		
+		for (int i=0; i < 5; i++){
+			
+			linha = random.nextInt(12);
+			coluna = random.nextInt(12);
+			
+			
+			
+			if ((matrizJogo.getMatrizJogo(linha, coluna)==0)&&(matrizJogo.getMatrizJogo(linha, coluna+1)==0)&&(matrizJogo.getMatrizJogo(linha, coluna+2)==0)){
+				navio1.alterar(linha, coluna);
+			}else{
+				linha = random.nextInt(12);
+				coluna = random.nextInt(12);
+				
+				navio1.alterar(linha, coluna);
+			}
+		}
+
 		
 		for (int i=0; i < 7; i++){
 			
 			linha = random.nextInt(12);
 			coluna = random.nextInt(12);
 			
-			navio.alterar(linha, coluna);
+			if ((matrizJogo.getMatrizJogo(linha, coluna)==0)&&(matrizJogo.getMatrizJogo(linha, coluna+1)==0)){
+				navio.alterar(linha, coluna);
+			}else{
+				linha = random.nextInt(12);
+				coluna = random.nextInt(12);
+				
+				navio.alterar(linha, coluna);
+			}
+			
+			
 		}
 		
 		for (int i=0; i < 8; i++){
@@ -56,17 +82,19 @@ public class ControladorBatNav {
 			linha = random.nextInt(12);
 			coluna = random.nextInt(12);
 			
-			submarino.alterar(linha, coluna);
+			if (matrizJogo.getMatrizJogo(linha, coluna)==0){
+				submarino.alterar(linha, coluna);
+			}else{
+				linha = random.nextInt(12);
+				coluna = random.nextInt(12);
+				
+				submarino.alterar(linha, coluna);
+			}
+			
 		}
 		
 		
-		for (int i=0; i < 5; i++){
-			
-			linha = random.nextInt(12);
-			coluna = random.nextInt(12);
-			
-			navio1.alterar(linha, coluna);
-		}
+		
 		
 		score.setPontos(0);
 		
@@ -124,7 +152,7 @@ public class ControladorBatNav {
 		// navio/submarino, ele mostra a imagem
 
 		boolean res;
-		res = (jajogou.consultar(linha, coluna)) && (submarino.consultar(linha, coluna));
+		res = submarino.consultar(linha, coluna);
 
 		if (res = false) {
 			score.setPontos(35);
@@ -144,7 +172,7 @@ public class ControladorBatNav {
 	public boolean temNavio1PT2(int linha, int coluna) {
 
 		boolean res;
-		res = (jajogou.consultar(linha, coluna)) && (navio1.consultarPT2(linha, coluna));
+		res = navio1.consultarPT2(linha, coluna);
 
 		if (res = false) {
 			score.setPontos(-10);
@@ -159,7 +187,7 @@ public class ControladorBatNav {
 	public boolean temNavio1PT3(int linha, int coluna) {
 
 		boolean res;
-		res = (jajogou.consultar(linha, coluna)) && (navio1.consultarPT3(linha, coluna));
+		res = navio1.consultarPT3(linha, coluna);
 
 		if (res = false) {
 			score.setPontos(-10);
@@ -174,7 +202,7 @@ public class ControladorBatNav {
 	public boolean temNavioPt1(int linha, int coluna) {
 
 		boolean res;
-		res = (jajogou.consultar(linha, coluna)) && (navio.consultar(linha, coluna));
+		res = navio.consultar(linha, coluna);
 
 		if (res = false) {
 			score.setPontos(-10);
@@ -189,7 +217,7 @@ public class ControladorBatNav {
 	public boolean temNavioPt2(int linha, int coluna) {
 
 		boolean res;
-		res = (jajogou.consultar(linha, coluna)) && (navio.consultarPt2(linha, coluna));
+		res = navio.consultarPt2(linha, coluna);
 
 		if (res = false) {
 			score.setPontos(25);

@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import batnav.controler.ControladorBatNav;
@@ -44,7 +45,7 @@ public class PainelPrincipal extends JPanel {
 		}
 	}
 	
-	public PainelPrincipal() {
+	public PainelPrincipal(JLabel score) {
 		controlador = new ControladorBatNav();
 		
 		addMouseListener(new MouseAdapter() {
@@ -53,12 +54,19 @@ public class PainelPrincipal extends JPanel {
 				int x = e.getX();
 				int y = e.getY();
 				
+				String ponto;
+				
 				int indexCol = x / calculaMenorDimensao();
 				int indexLin = y / calculaMenorDimensao();
 				
 				controlador.usuarioClicou(indexLin, indexCol);
 				
-				System.out.println(controlador.getScore());
+				ponto = String.valueOf(controlador.getScore());
+				
+				
+				score.setText(ponto);
+				
+				//System.out.println(controlador.getScore());
 				
 				repaint();
 				//Verifica onde o Usuário clicou e altera a cor do quadrado clicado (menor dimensao)

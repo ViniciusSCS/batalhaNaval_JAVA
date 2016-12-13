@@ -17,8 +17,9 @@ public class PainelDoJogo extends JPanel {
     public PainelDoJogo() {
         setLayout(new BorderLayout());
         
+        JLabel score = new JLabel("Score: " + 0);
       
-        painelPrincipal = new PainelPrincipal();
+        painelPrincipal = new PainelPrincipal(score);
         add(painelPrincipal, BorderLayout.CENTER);
         
 //        Score ponto = new Score();
@@ -27,9 +28,9 @@ public class PainelDoJogo extends JPanel {
         
         JButton restart = new JButton("Restart");
         restart.addActionListener(e -> painelPrincipal.restart());
-        JLabel score = new JLabel("Score: " + Controlador.getScore());
+       
         
-        System.out.println(Controlador.getScore());
+        //System.out.println(Controlador.getScore());
                
         JPanel painelBotao = new JPanel();
         painelBotao.add(restart);
